@@ -2,13 +2,15 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="N11 Test Suite" >
     <listeners>
-        <listener class-name="utils.listeners.TestListener"/>
-        <listener class-name="utils.listeners.AnnotationTransformer"/>
+        <listener class-name="runner.TestListenerCucumber"/>
+        <!-- <listener class-name="utils.listeners.AnnotationTransformer"/> -->
     </listeners>
 
-    <test name="LoginTest">
+    <test name="SmokeTests">
         <classes>
-            <class name="tests.LoginTests"/>
+<!--            <class name="tests.LoadTestTrino"/>-->
+            <class name="runner.TrinoSmokeTestCucumberRunner"/>
+            <class name="runner.TrinoLoadTestCucumberRunner"/>
         </classes>
     </test>
 </suite>

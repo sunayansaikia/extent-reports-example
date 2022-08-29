@@ -1,19 +1,17 @@
-package utils.listeners;
+package runner;
 
-import static utils.extentreports.ExtentTestManager.getTest;
-import static utils.extentreports.ExtentTestManager.startTest;
-
+import com.aventstack.extentreports.Status;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
-import com.aventstack.extentreports.Status;
-
 import tests.BaseTest;
 import utils.extentreports.ExtentManager;
 import utils.logs.Log;
 
-public class TestListener extends BaseTest implements ITestListener {
+import static utils.extentreports.ExtentTestManager.getTest;
+import static utils.extentreports.ExtentTestManager.startTest;
+
+public class TestListenerCucumber extends BaseTest implements ITestListener {
     private static String getTestMethodName(ITestResult iTestResult) {
         return iTestResult.getMethod().getConstructorOrMethod().getName();
     }
@@ -35,7 +33,7 @@ public class TestListener extends BaseTest implements ITestListener {
     @Override
     public void onTestStart(ITestResult iTestResult) {
         Log.info(getTestMethodName(iTestResult) + " test is starting.");
-        getTest().log(Status.INFO, "Locust load test started successfully at: localhost:8089");
+        //getTest().log(Status.INFO, "Locust load test started successfully at: localhost:8089");
         ExtentManager.extentReports.flush();
     }
 
@@ -43,13 +41,13 @@ public class TestListener extends BaseTest implements ITestListener {
     public void onTestSuccess(ITestResult iTestResult) {
         Log.info(getTestMethodName(iTestResult) + " test is succeed.");
         //ExtentReports log operation for passed tests.
-        getTest().log(Status.PASS, "Locust load test completed successfully.");
+        //getTest().log(Status.PASS, "Locust load test completed successfully.");
     }
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
         Log.info(getTestMethodName(iTestResult) + " test is failed.");
-        getTest().log(Status.FAIL, iTestResult.getThrowable().getMessage());
+        //getTest().log(Status.FAIL, iTestResult.getThrowable().getMessage());
         // //Get driver from BaseTest and assign to local webdriver variable.
         // Object testClass = iTestResult.getInstance();
         // WebDriver driver = ((BaseTest) testClass).getDriver();
@@ -67,7 +65,7 @@ public class TestListener extends BaseTest implements ITestListener {
     public void onTestSkipped(ITestResult iTestResult) {
         Log.info(getTestMethodName(iTestResult) + " test is skipped.");
         //ExtentReports log operation for skipped tests.
-        getTest().log(Status.SKIP, "Test Skipped");
+        //getTest().log(Status.SKIP, "Test Skipped");
     }
 
     @Override

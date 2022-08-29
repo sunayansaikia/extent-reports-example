@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extentreports>
+    <configuration>
+        <!-- report theme -->
+        <!-- standard, dark -->
+        <theme>dark</theme>
+
+        <offlineMode>true</offlineMode>
+
+        <!-- TODO: add view port-->
+
+        <!-- document encoding -->
+        <!-- defaults to UTF-8 -->
+        <encoding>UTF-8</encoding>
+
+        <!-- protocol for script and stylesheets -->
+        <!-- defaults to https -->
+        <protocol>https</protocol>
+
+        <!-- title of the document -->
+        <documentTitle>Extent</documentTitle>
+
+        <!-- report name - displayed at top-nav -->
+        <reportName>Automation Report</reportName>
+
+        <!-- location of charts in the test view -->
+        <!-- top, bottom -->
+        <testViewChartLocation>bottom</testViewChartLocation>
+
+        <!-- custom javascript -->
+        <scripts>
+            <![CDATA[
+                $(document).ready(function() {
+
+                });
+            ]]>
+        </scripts>
+
+        <!-- custom styles -->
+        <styles>
+            <![CDATA[
+                    .test-status { color: #2bdd87 !important; }
+                    .pass-bg { background-color: #437805; }
+                    .badge.log { color: #f0f5f0; }
+                    .badge-success { background-color: #118385; }
+                    .badge-danger { background-color: #cf415c; }
+                    .badge-primary { background-color: #565ae3; }
+                    .info-bg { background-color: #1373a7; }
+                    .step.pass-bg { background-color: #83af5380; }
+            ]]>
+        </styles>
+    </configuration>
+</extentreports>
